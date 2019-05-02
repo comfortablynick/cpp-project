@@ -34,3 +34,6 @@
 
 # Build directory
 build/
+
+# Language server
+compile_commands.json

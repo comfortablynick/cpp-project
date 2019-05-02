@@ -6,15 +6,14 @@ project(CPP_BOILERPLATE VERSION 1.2.3.4 LANGUAGES CXX)
 
 # Options: Things you can set via commandline options to cmake (e.g.
 # -DENABLE_LTO=[ON|OFF])
-option(
-  ENABLE_WARNINGS_SETTINGS
-  "Allow target_set_warnings to add flags and defines.
-                                 Set this to OFF if you want to provide your own warning parameters."
-  ON)
+option(ENABLE_WARNINGS_SETTINGS
+       "Allow target_set_warnings to add flags and defines.
+       Set this to OFF if you want to provide your own warning parameters." ON)
+
 option(ENABLE_LTO "Enable link time optimization" ON)
-option(
-  ENABLE_DOCTESTS
-  "Include tests in the library. Setting this to OFF will remove all doctest related code.
+
+option(ENABLE_DOCTESTS "Include tests in the library.
+  Setting this to OFF will remove all doctest related code.
 Tests in tests/*.cpp will still be enabled." OFF)
 
 # Include stuff. No change needed.
@@ -43,8 +42,8 @@ set(LIBRARY_NAME engine) # Default name for the library built from src/*.cpp
 # -----------------------------------------------------------------------------
 # Build! (Change as needed)
 # -----------------------------------------------------------------------------
-# Compile all sources into a library.
-add_library(${LIBRARY_NAME} ${SOURCES} OBJECT)
+# Compile all sources into a library. Had `OBJECT` but did not compile with it
+add_library(${LIBRARY_NAME} ${SOURCES})
 
 # Lib needs its header files, and users of the library must also see these
 # (PUBLIC). (No change needed)
