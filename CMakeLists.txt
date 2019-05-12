@@ -90,3 +90,7 @@ set_target_properties(${LIBRARY_NAME} main
 
 # Set up tests (see tests/CMakeLists.txt).
 add_subdirectory(tests)
+
+# Check includes with include-what-you-use
+include(CheckIWYU)
+install(TARGETS main DESTINATION ${PROJECT_SOURCE_DIR}/bin)
